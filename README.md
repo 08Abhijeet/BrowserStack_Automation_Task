@@ -21,7 +21,6 @@
 - [How It Works](#-how-it-works)
 - [Browser Automation Screenshots](#-browser-automation-screenshots)
 - [Project Architecture](#-project-architecture)
-- [Dependencies](#-dependencies)
 - [Environment Variables Reference](#-environment-variables-reference)
 - [Troubleshooting](#-troubleshooting)
 
@@ -364,30 +363,32 @@ Promise.all(capabilities.map((cap) => runTest(cap)));
 
 ---
 
-## 📸 Browser Automation Screenshots
+📸 Browser Automation Screenshots
 
-Below are screenshots captured during test execution across different browsers.
+🖼️ Build Runs
 
-| Screenshot | Description |
-|---|---|
-| `assets/screenshots/screenshot1.png` | El País homepage navigation |
-| `assets/screenshots/screenshot2.png` | Opinion section loaded |
-| `assets/screenshots/screenshot3.png` | Article page with content |
-| `assets/screenshots/screenshot4.png` | BrowserStack parallel sessions dashboard |
-| `assets/screenshots/screenshot5.png` | Console output with translated titles |
+<p align="center"> <img width="1495" height="710" alt="Build Runs Screenshot" src="https://github.com/user-attachments/assets/2a183427-dc6e-47ed-bf9f-3b1622259ef2" /> </p>
 
-### How to Capture Screenshots During Tests
 
-Add this snippet in your test code to save a screenshot at any point:
+🖼️ Build Summary
 
-```javascript
-import fs from "fs/promises";
+<p align="center"> <img width="1897" height="870" alt="Build Summary Screenshot" src="https://github.com/user-attachments/assets/27f60b46-f888-485a-944d-972663074369" /> </p>
 
-// Inside your test, after driver is created:
-const screenshot = await driver.takeScreenshot();
-await fs.writeFile("assets/screenshots/my-screenshot.png", screenshot, "base64");
-console.log("Screenshot saved!");
-```
+
+🖼️ Running Across 5 Parallel Threads
+
+<p align="center"> <img width="1895" height="866" alt="Parallel Threads Screenshot" src="https://github.com/user-attachments/assets/019c44c9-7f37-4714-b594-37bef8ab13ab" /> </p>
+
+
+🖼️ BrowserStack Parallel Sessions Log
+
+<p align="center"> <img width="990" height="625" alt="Sessions Log Screenshot" src="https://github.com/user-attachments/assets/6ef33f66-056c-439f-9d70-4c0e91c172c6" /> </p>
+
+
+🖼️ Console Output (with Translated Titles)
+
+<p align="center"> <img width="608" height="176" alt="Console Output Screenshot" src="https://github.com/user-attachments/assets/ba0892d4-cb56-4cf8-bbe6-fc80cd330498" /> </p>
+
 
 ### Viewing BrowserStack Session Recordings
 
@@ -423,22 +424,6 @@ After running `npm run browserstack`:
        │   (RapidAPI)│  │Downldr │  │ (word analysis)│
        └─────────────┘  └────────┘  └───────────────┘
 ```
-
----
-
-## 📦 Dependencies
-
-```json
-{
-  "selenium-webdriver": "^4.40.0",   // Browser automation
-  "axios": "^1.13.5",                // HTTP client for RapidAPI
-  "dotenv": "^17.3.1",               // .env file loader
-  "fs-extra": "^11.3.3",             // Enhanced file system
-  "mocha": "^11.7.5"                 // Test runner
-}
-```
-
----
 
 ## 🔑 Environment Variables Reference
 
@@ -477,20 +462,6 @@ Translation error for article X
 2. Ensure you have subscribed to the **"Rapid Translate Multi Traduction"** API on RapidAPI
 3. Check your RapidAPI usage quota hasn't been exceeded
 
----
-
-### StaleElementReferenceError
-This is handled automatically with retry logic in `scraperInfo.js`. If you see repeated failures, the page structure may have changed.
-
----
-
-### El País cookie banner blocking scraping
-**Fix:** The scraper navigates to `baseURL` first to trigger the cookie consent, then navigates to the Opinion section. If this still blocks, add a manual cookie dismissal step:
-```javascript
-await driver.findElement(By.id("didomi-notice-agree-button")).click();
-```
-
----
 
 ## 📝 License
 
@@ -501,3 +472,4 @@ ISC
 ## 👤 Author
 
 Built as a BrowserStack automation assessment task using Node.js + Selenium WebDriver.
+
