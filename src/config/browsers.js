@@ -24,10 +24,15 @@ export const capabilities = [
     osVersion: "11",
   },
   {
-    browserName: "Edge",
+    browserName: "Safari",
     browserVersion: "latest",
-    os: "Windows",
-    osVersion: "11",
+    os: "OS X",
+    osVersion: "Sonoma",
+  },
+  {
+    deviceName: "iPhone 15 Pro Max",
+    osVersion: "17",
+    browserName: "Safari",
   },
   {
     deviceName: "Google Pixel 8 Pro",
