@@ -30,9 +30,6 @@ async function runTest(cap) {
         });
 
         console.log(`\n[${browserName}] == REPEATED WORDS ==\n`);
-
-        // Note: analyzeRepeatedWords logs to console directly, might need update if we want prefix there too.
-        // For now, let's keep it simple or wrap it.
         analyzeRepeatedWords(translatedTitles);
 
         await driver.executeScript(
@@ -55,5 +52,5 @@ async function runTest(cap) {
     }
 }
 
-// Run all capabilities in parallel
+
 Promise.all(capabilities.map((cap) => runTest(cap)));

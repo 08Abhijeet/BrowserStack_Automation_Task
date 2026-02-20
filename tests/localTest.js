@@ -3,6 +3,7 @@ import { scrapeArticles } from "../src/utils/scraperInfo.js";
 import { translateText } from "../src/utils/headerTranslator.js";
 import { analyzeRepeatedWords } from "../src/utils/wordFreq.js";
 
+//Local Driver
 async function runLocalTest() {
 
   const driver = await createLocalDriver();
