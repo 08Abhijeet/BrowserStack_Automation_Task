@@ -30,17 +30,6 @@ export const capabilities = [
     osVersion: "11",
   },
   {
-    browserName: "Safari",
-    browserVersion: "latest",
-    os: "OS X",
-    osVersion: "Sonoma",
-  },
-  {
-    deviceName: "iPhone 15 Pro Max",
-    osVersion: "17",
-    browserName: "Safari",
-  },
-  {
     deviceName: "Google Pixel 8 Pro",
     osVersion: "14.0",
     browserName: "Chrome",

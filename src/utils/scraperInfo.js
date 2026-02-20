@@ -1,6 +1,8 @@
 import { By, until } from "selenium-webdriver";
+import fs from "fs/promises"; // <-- NEW: Imported Node's file system for JSON saving
 import { downloadImage } from "./imageDownloader.js";
 import { ELPAIS_BASE_URL, ELPAIS_OPINION_URL, ARTICLE_COUNT } from "../config/constants.js";
+import { translateText } from "./headerTranslator.js";
 
 async function getTextWithRetry(element, retries = 2) {
   for (let i = 0; i < retries; i++) {
@@ -26,6 +28,10 @@ async function getAttributeWithRetry(element, attr, retries = 2) {
 
 export async function scrapeArticles(driver, browserName = "default") {
   const results = [];
+  
+  // Arrays to hold our titles for the final output
+  const spanishTitles = [];
+  const englishTitles = [];
 
   console.log(`[${browserName}] Navigating to ${ELPAIS_BASE_URL}...`);
   await driver.get(ELPAIS_BASE_URL);
@@ -94,11 +100,22 @@ export async function scrapeArticles(driver, browserName = "default") {
       content = content.trim();
     } catch { }
 
-    console.log(`\n[${browserName}] == SPANISH TITLE ==`);
-    console.log(`[${browserName}] SPANISH TITLE:\n`, title);
-    // console.log(`[${browserName}] SPANISH CONTENT:\n`, content.substring(0, 500), "...");
+    // --- NEW: Print Spanish Content as it scrapes ---
+    console.log(`\n[${browserName}] SPANISH TITLE:\n`, title);
+    console.log(`[${browserName}] SPANISH CONTENT:\n`, content);
 
-    // Download image using the new imageDownloader module
+    // Store the Spanish title and translate it to English
+    spanishTitles.push(title);
+    
+    let translatedTitle = "Translation failed";
+    try {
+      translatedTitle = await translateText(title);
+    } catch (err) {
+      console.log(`[${browserName}] Translation error for article ${i + 1}`);
+    }
+    englishTitles.push(translatedTitle);
+
+    // image Downloader
     let imageFilename = `article-${i + 1}.jpg`;
     try {
       const img = await driver.findElement(By.css("article figure img"));
@@ -110,8 +127,27 @@ export async function scrapeArticles(driver, browserName = "default") {
       console.log(`[${browserName}] No image found ❌`);
     }
 
-    results.push({ title, content, imageUrl: `images/${imageFilename}` });
+    // Pushing both versions of the title to your results array 
+    results.push({ 
+      title, 
+      translatedTitle, 
+      content, 
+      imageUrl: `images/${imageFilename}` 
+    });
   }
+
+  // --- FORMATTED SUMMARY OUTPUT SECTION ---
+  console.log(`\n========================================`);
+  console.log(`[${browserName}] SCRAPING COMPLETE`);
+  console.log(`========================================\n`);
+
+  console.log(`--- ALL SPANISH TITLES ---`);
+  spanishTitles.forEach((t, idx) => console.log(`${idx + 1}. ${t}`));
+
+  console.log(`\n--- ALL ENGLISH TRANSLATED TITLES ---`);
+  englishTitles.forEach((t, idx) => console.log(`${idx + 1}. ${t}`));
+  
+  console.log(`\n========================================\n`);
 
   return results;
 }

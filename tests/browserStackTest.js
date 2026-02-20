@@ -1,8 +1,8 @@
 import { createBrowserStackDriver } from "../src/drivers/browserStackDriver.js";
 import { capabilities } from "../src/config/browsers.js";
-import { scrapeArticles } from "../src/utils/ElPaisScraper.js";
+import { scrapeArticles } from "../src/utils/scraperInfo.js";
 import { translateText } from "../src/utils/headerTranslator.js";
-import { analyzeRepeatedWords } from "../src/utils/freqCounter.js";
+import { analyzeRepeatedWords } from "../src/utils/wordFreq.js";
 
 async function runTest(cap) {
 
