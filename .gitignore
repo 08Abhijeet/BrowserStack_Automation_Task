@@ -9,8 +9,6 @@ package-lock.json
 
 # Scraped Output Data & Downloads
 articles.json
-images/
-screenshots/
 
 # Log files
 npm-debug.log*
