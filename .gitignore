@@ -1,0 +1,27 @@
+# Node.js Dependencies
+node_modules/
+package-lock.json
+
+# Secret Keys & Environment Variables (SUPER IMPORTANT)
+.env
+.env.local
+.env.development
+
+# Scraped Output Data & Downloads
+articles.json
+images/
+screenshots/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS Generated Files (Mac & Windows junk)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
