@@ -100,11 +100,9 @@ export async function scrapeArticles(driver, browserName = "default") {
       content = content.trim();
     } catch { }
 
-    // --- NEW: Print Spanish Content as it scrapes ---
     console.log(`\n[${browserName}] SPANISH TITLE:\n`, title);
     console.log(`[${browserName}] SPANISH CONTENT:\n`, content);
 
-    // Store the Spanish title and translate it to English
     spanishTitles.push(title);
     
     let translatedTitle = "Translation failed";
@@ -136,7 +134,7 @@ export async function scrapeArticles(driver, browserName = "default") {
     });
   }
 
-  // --- FORMATTED SUMMARY OUTPUT SECTION ---
+
   console.log(`\n========================================`);
   console.log(`[${browserName}] SCRAPING COMPLETE`);
   console.log(`========================================\n`);
