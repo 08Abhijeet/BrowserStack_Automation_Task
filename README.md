@@ -367,27 +367,27 @@ Promise.all(capabilities.map((cap) => runTest(cap)));
 
 🖼️ Build Runs
 
-<p align="center"> <img width="1495" height="710" alt="Build Runs Screenshot" src="https://github.com/user-attachments/assets/2a183427-dc6e-47ed-bf9f-3b1622259ef2" /> </p>
+<img width="1495" height="710" alt="ss1" src="https://github.com/user-attachments/assets/20aa9602-9e63-46fa-871a-61d50acb1daa" />
 
 
 🖼️ Build Summary
 
-<p align="center"> <img width="1897" height="870" alt="Build Summary Screenshot" src="https://github.com/user-attachments/assets/27f60b46-f888-485a-944d-972663074369" /> </p>
+<img width="1897" height="870" alt="ss2" src="https://github.com/user-attachments/assets/b8e3a88a-6d1e-4f88-a651-06107444cab8" />
 
 
 🖼️ Running Across 5 Parallel Threads
 
-<p align="center"> <img width="1895" height="866" alt="Parallel Threads Screenshot" src="https://github.com/user-attachments/assets/019c44c9-7f37-4714-b594-37bef8ab13ab" /> </p>
+<img width="1895" height="866" alt="ss3" src="https://github.com/user-attachments/assets/075fad23-a23a-49be-9393-4aeae6cc22a7" />
 
 
 🖼️ BrowserStack Parallel Sessions Log
 
-<p align="center"> <img width="990" height="625" alt="Sessions Log Screenshot" src="https://github.com/user-attachments/assets/6ef33f66-056c-439f-9d70-4c0e91c172c6" /> </p>
+<img width="990" height="625" alt="ss4" src="https://github.com/user-attachments/assets/f4b14e00-3d20-4eb5-83cb-ca4f522d6b9c" />
 
 
 🖼️ Console Output (with Translated Titles)
 
-<p align="center"> <img width="608" height="176" alt="Console Output Screenshot" src="https://github.com/user-attachments/assets/ba0892d4-cb56-4cf8-bbe6-fc80cd330498" /> </p>
+<img width="608" height="176" alt="ss5" src="https://github.com/user-attachments/assets/239bb40b-d00d-4632-a7df-9187ea70b9bc" />
 
 
 ### Viewing BrowserStack Session Recordings
@@ -472,4 +472,5 @@ ISC
 ## 👤 Author
 
 Built as a BrowserStack automation assessment task using Node.js + Selenium WebDriver.
+
 
